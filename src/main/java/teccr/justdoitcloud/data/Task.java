@@ -21,7 +21,15 @@ public class Task {
     private final LocalDateTime createdAt;
     private final LocalDate deadline;
     @NotNull
-    private final Status status;
+    private Status status;
+
+    public Task(Long id, String description, LocalDateTime createdAt, LocalDate deadline, Status status) {
+        this.id = id;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.deadline = deadline;
+        this.status = status;
+    }
 
     @Column("user_id")
     private Long userId;

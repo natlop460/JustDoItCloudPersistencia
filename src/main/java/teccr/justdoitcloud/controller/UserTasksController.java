@@ -48,4 +48,13 @@ public class UserTasksController {
         taskService.addTaskToUser(user, newTask);
         return "redirect:/user/tasks";
     }
+
+    @PostMapping("/advance")
+    public String advanceTask(@RequestParam Long taskId,
+                              @ModelAttribute("user") User user) {
+
+        taskService.advanceTaskStatus(user, taskId);
+
+        return "redirect:/user/tasks";
+    }
 }
